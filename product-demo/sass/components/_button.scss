@@ -1,0 +1,21 @@
+.btn {
+    margin-top: 1.5rem;
+    color: $color-dark-grey;
+    background-color: transparent;
+    font-size: $default-font-size;
+    font-weight: 100;
+    border: $color-dark-grey solid 0.05rem;
+    border-radius: 0.2rem;
+    padding: 1rem;
+    transition: all .3s;
+
+    &:hover {
+        color: $color-light-grey-1;
+        background-color: $color-dark-grey;
+        cursor: pointer;
+    }
+
+    &:active {
+        background-color: #445252;
+    }
+}

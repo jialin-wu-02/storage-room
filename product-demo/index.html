@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Product Page</title>
+</head>
+<body>
+    <div class="nav" id="nav">
+        <a href="#" class="nav-brand"> Brand </a>
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="#" class="nav-link"> Product 1 </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link"> Product 2 </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link"> Product 3 </a>
+            </li>
+            <li class="nav-item nav-item--right">
+                <a href="#" class="nav-link"> About </a>
+            </li>
+            <li class="nav-item nav-item--right">
+                <a href="#" class="nav-link"> Contact </a>
+            </li>
+        </ul>
+    </div>
+    <div class="header">
+        <div class="header-text-box">
+                <h1 class="heading-primary"> Product Demo </h1>
+                <p class="description"> Lorem ipsum dolor sit amet consect hia smiaio.</p>
+                <button class="btn"> Comming Soon</button>
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="heading-secondary"> Product One </h2>
+        <button class="btn"> 123 </button>
+    </div>
+    <div class="container">
+            <h2 class="heading-secondary"> Cards </h2>
+            <button class="btn"> 123 </button>
+        </div>
+    <div class="container">
+        <h2 class="heading-secondary"> Navigation Bar </h2>
+        <button class="btn"> 123 </button>
+    </div>
+    <script>
+        window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+            if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
+                document.getElementById("nav").style.marginTop = "0";
+                document.getElementById("nav").style.backgroundColor = "white";
+            } else {
+                document.getElementById("nav").style.marginTop = "1rem";
+                document.getElementById("nav").style.backgroundColor = "transparent";
+            }
+        }
+    </script>
+</body>
+</html>
