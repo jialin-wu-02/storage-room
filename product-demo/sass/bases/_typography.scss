@@ -6,8 +6,41 @@
     font-size: $secondary-font-size;
 }
 
-.description {
+.heading-primary-sub {
     font-size: $small-font-size;
-    margin-top: 0.6rem;
     color: $color-light-grey;
+    font-weight: $default-font-weight;
+}
+
+.description {
+    font-size: $default-font-size;
+    color: $color-light-grey;
+    font-weight: $default-font-weight;
+}
+
+.description--white {
+    font-size: $default-font-size;
+    color: $color-lighter-grey;
+    font-weight: $default-font-weight;
+}
+
+.heading-feature {
+    font-size: $feature-font-size;
+    font-weight: $feature-font-weight;
+    border-bottom: .1rem $color-dark-grey solid;
+    background-color: $color-dark-grey;
+    color: white;
+    padding: 1rem;
+}
+
+.paragraph-feature {
+    font-size: $default-font-size;
+    font-weight: $default-font-weight;
+    margin: 8%;
+}
+
+.footer-heading {
+    font-size: $default-font-size;
+    font-weight: $default-font-weight;
+    line-height: 3.2rem;
 }

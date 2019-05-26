@@ -1,0 +1,9 @@
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    border: .1rem $color-dark-grey solid;
+    border-radius: 0.5rem;
+}

@@ -1,5 +1,4 @@
 .btn {
-    margin-top: 1.5rem;
     color: $color-dark-grey;
     background-color: transparent;
     font-size: $default-font-size;
@@ -8,6 +7,7 @@
     border-radius: 0.2rem;
     padding: 1rem;
     transition: all .3s;
+    min-width: 14rem; 
 
     &:hover {
         color: $color-light-grey-1;
@@ -17,5 +17,10 @@
 
     &:active {
         background-color: #445252;
+    }
+
+    &--active {
+        background-color: #445252;
+        color: white;
     }
 }
