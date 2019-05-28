@@ -1,9 +1,10 @@
 .card-flip {
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-bottom: 5%;
-    width: 40%;
-    float: left;
+    // margin-left: 5%;
+    // margin-right: 5%;
+    // margin-bottom: 5%;
+    // width: 40%;
+    // float: left;
+    // position: absolute;
     background-color: transparent;
     perspective: 1000px;
 
@@ -14,6 +15,7 @@
         text-align: center;
         float: left;
         transition: all 0.8s;
+        -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
         box-shadow: $default-box-shadow;
     }
@@ -30,6 +32,7 @@
         text-align: center;
         float: left;
         transition: all 0.8s;
+        -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
         box-shadow: $default-box-shadow;
     }
@@ -43,6 +46,7 @@
         // position: absolute;
         height: 100%;
         width: 100%;
+        -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
     }
 
@@ -57,10 +61,12 @@
 
 
         &--horizontal {
+            -webkit-transform: rotateY(180deg);
             transform: rotateY(180deg);
         }
 
         &--vertical {
+            -webkit-transform: rotateX(180deg);
             transform: rotateX(180deg);
         }
 

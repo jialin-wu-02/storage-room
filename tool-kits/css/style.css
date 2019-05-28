@@ -19,13 +19,24 @@ body {
   font-size: 2.5rem;
   color: black; }
 
+.arrow {
+  position: absolute;
+  top: 50%;
+  transition: .2s; }
+  .arrow--left {
+    left: 4rem; }
+  .arrow--right {
+    right: 4rem; }
+  .arrow:hover {
+    transform: scale(1.2);
+    cursor: pointer; }
+
+.btn {
+  width: 10rem;
+  height: 4rem;
+  font-size: 2rem; }
+
 .card {
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 5%;
-  width: 40%;
-  position: relative;
-  float: left;
   text-align: center;
   box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.6rem rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -59,11 +70,6 @@ body {
     transform: translate(-50%, -50%); }
 
 .card-flip {
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 5%;
-  width: 40%;
-  float: left;
   background-color: transparent;
   perspective: 1000px; }
   .card-flip--inner--horizontal {
@@ -73,6 +79,7 @@ body {
     text-align: center;
     float: left;
     transition: all 0.8s;
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.6rem rgba(0, 0, 0, 0.24); }
   .card-flip:hover .card-flip--inner--horizontal {
@@ -85,6 +92,7 @@ body {
     text-align: center;
     float: left;
     transition: all 0.8s;
+    -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.6rem rgba(0, 0, 0, 0.24); }
   .card-flip:hover .card-flip--inner--vertical {
@@ -93,6 +101,7 @@ body {
   .card-flip__front, .card-flip__back {
     height: 100%;
     width: 100%;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden; }
   .card-flip__front {
     background-color: white; }
@@ -101,8 +110,10 @@ body {
     top: 0;
     background-color: orange; }
     .card-flip__back--horizontal {
+      -webkit-transform: rotateY(180deg);
       transform: rotateY(180deg); }
     .card-flip__back--vertical {
+      -webkit-transform: rotateX(180deg);
       transform: rotateX(180deg); }
     .card-flip__back__image {
       position: absolute;
@@ -114,7 +125,13 @@ body {
   background-color: #a9e7ff; }
 
 .container {
-  width: 53%;
+  width: 20%;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%); }
+  top: 50%;
+  transform: translate(-50%, -50%); }
+
+.main {
+  position: absolute;
+  width: 100%;
+  height: 100%; }
