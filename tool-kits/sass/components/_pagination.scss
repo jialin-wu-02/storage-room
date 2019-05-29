@@ -1,0 +1,29 @@
+.pagination {
+    position: absolute;
+    top: 90vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dot {
+    height: 1.1rem;
+    width: 1.1rem;
+    margin: 0.38rem;
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    transition: all .3s;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.22);
+    }
+
+    &--active, &:active{
+        transform: scale(1.27);
+    }
+
+    &:first-child {
+        margin-right: 0.40rem;
+    }
+}

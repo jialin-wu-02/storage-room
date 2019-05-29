@@ -12,9 +12,6 @@ html {
 body {
   box-sizing: border-box; }
 
-.heading-primary {
-  font-size: 3rem; }
-
 .heading-secondary {
   font-size: 2.5rem;
   color: black; }
@@ -70,7 +67,11 @@ body {
     left: 50%;
     transform: translate(-50%, -50%); }
 
+.show-cards {
+  transition: .4s; }
+
 .card-flip {
+  position: absolute;
   background-color: transparent;
   perspective: 1000px; }
   .card-flip--inner--horizontal {
@@ -160,6 +161,28 @@ body {
   -webkit-transform: rotate(-135deg) translate(0, 1.68rem) scale(1.1);
   transform: rotate(-135deg) translate(0, 1.68rem) scale(1.1); }
 
+.pagination {
+  position: absolute;
+  top: 90vh;
+  left: 50%;
+  transform: translateX(-50%); }
+
+.dot {
+  height: 1.1rem;
+  width: 1.1rem;
+  margin: 0.38rem;
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  transition: all .3s;
+  cursor: pointer; }
+  .dot:hover {
+    transform: scale(1.22); }
+  .dot--active, .dot:active {
+    transform: scale(1.27); }
+  .dot:first-child {
+    margin-right: 0.40rem; }
+
 body {
   background-color: #a9e7ff; }
 
@@ -180,6 +203,9 @@ body {
   opacity: 1;
   border-bottom-right-radius: 100%;
   transition: 0.6s cubic-bezier(0.39, 0.575, 0.565, 1); }
+  .nav-menu-overlay .heading-primary {
+    font-size: 3rem;
+    display: none; }
 
 .container {
   width: 30rem;
