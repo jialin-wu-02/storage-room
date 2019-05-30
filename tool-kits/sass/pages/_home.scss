@@ -20,12 +20,68 @@ body {
     width: 0vw;
     opacity: 1;
     border-bottom-right-radius: 100%;
-    transition: 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
+    transition: all 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
 
-    .heading-primary {
-        font-size: $primary-heading-font-size;
-        display: none;
-        // opacity: 0;
+    .nav-menu {
+        display: block;
+        position: absolute;
+        // background-color: darkgreen;
+        top: 47vh;
+        left: 50vw;
+        opacity: 0;
+        z-index: 10;   
+        transform: translate(-50%, -50%);
+        transition: all 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
+        text-align: center;
+        color: white;
+        
+        .heading-primary {
+            font-size: $primary-heading-font-size;
+            line-height: 10rem;
+        }
+
+        .nav-text {
+            font-size: $secondary-heading-font-size;
+            line-height: 8rem;
+            display: block;
+            position: relative;
+
+            &:hover {
+                cursor: pointer;
+                color: black;
+                z-index: 12;
+
+                &:before  {
+                    visibility: visible;
+                    -webkit-transform: scaleX(1);
+                    transform: scaleX(1);
+                    z-index: -1;
+                }
+            }
+    
+            &:before {
+                content: "";
+                position: absolute;
+                top: 24%;
+                left: 19.6%;
+                width: 60%;
+                height: 50%;
+                // transform: translate(-50%, -50%);
+                background-color: #fff;
+                visibility: hidden;
+                -webkit-transform: scaleX(0);
+                transform: scaleX(0);
+                -webkit-transition: all .3s ease-in-out 0s;
+                transition: all .3s ease-in-out 0s;
+            }
+    
+            &:active {
+                &:before {
+                    -webkit-transform: scaleX(0.8);
+                    transform: scaleX(0.8);
+                }
+            }
+        }
     }
 }
 

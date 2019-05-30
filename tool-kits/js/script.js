@@ -53,15 +53,15 @@ const next = (direction) => {
 const showDivs = (direction, previous, index) => {
     divs[previous].style.opacity = "0";  
     if (direction > 0) {
-        divs[previous].style.transform = "translateX(-10rem)";
+        divs[previous].style.transform = "translateX(-16rem) scale(0.8)";
     } else {
-        divs[previous].style.transform = "translateX(10rem)";
+        divs[previous].style.transform = "translateX(16rem) scale(0.8)";
     }
     setTimeout(() => {
         if (direction > 0) {
-            divs[previous].style.transform = "translateX(0rem)";
+            divs[previous].style.transform = "translateX(0rem) scale(1)";
         } else {
-            divs[previous].style.transform = "translateX(0rem)";
+            divs[previous].style.transform = "translateX(0rem) scale(1)";
         }
         divs[previous].style.display = "none";
     }, 300)
@@ -71,15 +71,34 @@ const showDivs = (direction, previous, index) => {
 
 let showMenu = false;
 
+// displaying the nav menu
 const navClick = nav => {
     nav.classList.toggle("change");
     if (!showMenu) {
-        document.getElementsByClassName("nav-menu-overlay")[0].style.height = "200vh";
-        document.getElementsByClassName("nav-menu-overlay")[0].style.width = "200vw";
+        document.getElementsByClassName("nav-menu-overlay")[0].style.display = "block";
+        setTimeout(()=> {
+            document.getElementsByClassName("nav-menu-overlay")[0].style.height = "200vh";
+            document.getElementsByClassName("nav-menu-overlay")[0].style.width = "200vw";
+        }, 200)
+        setTimeout(()=> {
+            document.getElementsByClassName("nav-menu")[0].style.opacity = "1";
+        }, 300)
+        
         showMenu = true;
     } else {
-        document.getElementsByClassName("nav-menu-overlay")[0].style.height = "0";
-        document.getElementsByClassName("nav-menu-overlay")[0].style.width = "0";
+        setTimeout(()=> {
+            document.getElementsByClassName("nav-menu-overlay")[0].style.height = "0";
+            document.getElementsByClassName("nav-menu-overlay")[0].style.width = "0";
+        }, 250)
+        setTimeout(()=> {
+            document.getElementsByClassName("nav-menu-overlay")[0].style.display = "none";
+        }, 800)
+        document.getElementsByClassName("nav-menu")[0].style.opacity = "0";
         showMenu = false;
     }
+}
+
+const choose = types => {
+    navClick(document.getElementsByClassName("nav-icon")[0]);
+
 }
