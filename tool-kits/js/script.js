@@ -2,24 +2,37 @@
 window.addEventListener('scroll', () => window.scrollTo(0, 0));
 
 let index = 0;
-let divs = document.getElementsByClassName("show-cards");
+let displayType = "show-cards"
+let divs = document.getElementsByClassName(displayType);
 
 let pagination = document.getElementsByClassName("pagination")[0];
 let dots = document.getElementsByClassName("dot");
 
-// add pagination:
-pagination.innerHTML += "<span class='dot dot--active' onclick='setIndex(0)'></span>";
-for (var i = 1; i < divs.length; i++) {
-    pagination.innerHTML += "<span class='dot' onclick='setIndex(" + i + ")'></span>";
+let showContainer;
+
+// 1. add pagination according to div's length
+// 2. display the first element of the div.
+const initialize = () => {
+
+    // add pagination:
+    pagination.innerHTML += "<span class='dot dot--active' onclick='setIndex(0)'></span>";
+    for (var i = 1; i < divs.length; i++) {
+        pagination.innerHTML += "<span class='dot' onclick='setIndex(" + i + ")'></span>";
+    }
+
+    // defualt: display the first element
+    for (var i = 1; i < divs.length; i++) {
+        divs[i].style.display = "none";   
+        divs[i].style.opacity = "0";  
+    }
+
+    divs[0].style.display = "block";
 }
 
-// defualt: display the first element
-for (var i = 1; i < divs.length; i++) {
-    divs[i].style.display = "none";   
-    divs[i].style.opacity = "0";  
-}
+initialize();
 
-document.onkeydown = (e) => {
+// listener of keyboard left & right event.
+document.onkeydown = e => {
     if (e.key == "ArrowLeft") {
         next(-1);
     } else if (e.key == "ArrowRight") {
@@ -27,7 +40,8 @@ document.onkeydown = (e) => {
     }
 }
 
-const setIndex = (i) => {
+// switch the displayed component to the one that has index i.
+const setIndex = i => {
     let previous = index;
     index = i;
     dots[previous].classList.remove("dot--active");
@@ -98,7 +112,40 @@ const navClick = nav => {
     }
 }
 
+// change the type of the displayed components via menu
 const choose = types => {
+
     navClick(document.getElementsByClassName("nav-icon")[0]);
+    console.log("choose");
+    wipeClean(displayType);
+
+    if (types === "cards") {
+        displayType = "show-cards";
+        showContainer = "card-container";
+    } else if (types === "buttons") {
+        displayType = "show-buttons";
+        showContainer = "button-container";
+    } else if  (types === "navs") {
+        showContainer = "nav-container";
+    }
+    index = 0;
+    divs = document.getElementsByClassName(displayType);
+    document.getElementById(showContainer).style.display = "block";
+
+    initialize();
+
+}
+
+// 1. given the type of the displayed components, change all the display style to none.
+// 2. reset the pagination.
+const wipeClean = types => {
+
+    document.getElementById("card-container").style.display = "none";
+
+    // reset pagination:
+    while (pagination.firstChild) {
+        pagination.removeChild(pagination.firstChild);
+    }
+
 
 }
