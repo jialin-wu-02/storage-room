@@ -20,6 +20,9 @@ const initialize = () => {
         pagination.innerHTML += "<span class='dot' onclick='setIndex(" + i + ")'></span>";
     }
 
+    console.log(divs);
+    console.log(divs.length);
+
     // defualt: display the first element
     for (var i = 1; i < divs.length; i++) {
         divs[i].style.display = "none";   
