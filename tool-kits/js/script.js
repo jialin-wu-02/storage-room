@@ -8,7 +8,7 @@ let divs = document.getElementsByClassName(displayType);
 let pagination = document.getElementsByClassName("pagination")[0];
 let dots = document.getElementsByClassName("dot");
 
-let showContainer;
+let showContainer = "card-container";
 
 // 1. add pagination according to div's length
 // 2. display the first element of the div.
@@ -120,7 +120,7 @@ const choose = types => {
 
     navClick(document.getElementsByClassName("nav-icon")[0]);
     console.log("choose");
-    wipeClean(displayType);
+    wipeClean(showContainer);
 
     if (types === "cards") {
         displayType = "show-cards";
@@ -129,11 +129,13 @@ const choose = types => {
         displayType = "show-buttons";
         showContainer = "button-container";
     } else if  (types === "navs") {
+        displayType = "show-navs";
         showContainer = "nav-container";
     }
     index = 0;
     divs = document.getElementsByClassName(displayType);
     document.getElementById(showContainer).style.display = "block";
+    // document.getElementById(showContainer).style.zindex = "10";
 
     initialize();
 
@@ -141,9 +143,10 @@ const choose = types => {
 
 // 1. given the type of the displayed components, change all the display style to none.
 // 2. reset the pagination.
-const wipeClean = types => {
+const wipeClean = showContainer => {
 
-    document.getElementById("card-container").style.display = "none";
+    document.getElementById(showContainer).style.display = "none";
+    // document.getElementById(showContainer).style.zindex = "-2";
 
     // reset pagination:
     while (pagination.firstChild) {
