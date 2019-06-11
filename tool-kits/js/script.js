@@ -2,17 +2,20 @@
 window.addEventListener('scroll', () => window.scrollTo(0, 0));
 
 let index = 0;
+
 let displayType = "show-cards"
+let containerType = "card-container";
+
 let divs = document.getElementsByClassName(displayType);
 
 let pagination = document.getElementsByClassName("pagination")[0];
 let dots = document.getElementsByClassName("dot");
 
-let showContainer = "card-container";
-
 // 1. add pagination according to div's length
 // 2. display the first element of the div.
 const initialize = () => {
+
+    document.getElementById(containerType).style.display = "block";
 
     // add pagination:
     pagination.innerHTML += "<span class='dot dot--active' onclick='setIndex(0)'></span>";
@@ -70,15 +73,15 @@ const next = (direction) => {
 const showDivs = (direction, previous, index) => {
     divs[previous].style.opacity = "0";  
     if (direction > 0) {
-        divs[previous].style.transform = "translateX(-16rem) scale(0.8)";
+        divs[previous].style.transform = "translate(-80%, -50%) scale(0.8)";
     } else {
-        divs[previous].style.transform = "translateX(16rem) scale(0.8)";
+        divs[previous].style.transform = "translate(-20%, -50%) scale(0.8)";
     }
     setTimeout(() => {
         if (direction > 0) {
-            divs[previous].style.transform = "translateX(0rem) scale(1)";
+            divs[previous].style.transform = "translate(-50%, -50%) scale(1)";
         } else {
-            divs[previous].style.transform = "translateX(0rem) scale(1)";
+            divs[previous].style.transform = "translate(-50%, -50%) scale(1)";
         }
         divs[previous].style.display = "none";
     }, 300)
@@ -120,33 +123,33 @@ const choose = types => {
 
     navClick(document.getElementsByClassName("nav-icon")[0]);
     console.log("choose");
-    wipeClean(showContainer);
+    wipeClean(containerType);
 
     if (types === "cards") {
         displayType = "show-cards";
-        showContainer = "card-container";
+        containerType = "card-container";
     } else if (types === "buttons") {
         displayType = "show-buttons";
-        showContainer = "button-container";
+        containerType = "button-container";
     } else if  (types === "navs") {
         displayType = "show-navs";
-        showContainer = "nav-container";
+        containerType = "nav-container";
     }
     index = 0;
     divs = document.getElementsByClassName(displayType);
-    document.getElementById(showContainer).style.display = "block";
-    // document.getElementById(showContainer).style.zindex = "10";
+    // document.getElementById(containerType).style.display = "block";
+    // document.getElementById(containerType).style.zindex = "10";
 
     initialize();
 
 }
 
-// 1. given the type of the displayed components, change all the display style to none.
+// 1. given the type of the container of the displayed components, make display property to none.
 // 2. reset the pagination.
-const wipeClean = showContainer => {
+const wipeClean = containerType => {
 
-    document.getElementById(showContainer).style.display = "none";
-    // document.getElementById(showContainer).style.zindex = "-2";
+    document.getElementById(containerType).style.display = "none";
+    // document.getElementById(containerType).style.zindex = "-2";
 
     // reset pagination:
     while (pagination.firstChild) {

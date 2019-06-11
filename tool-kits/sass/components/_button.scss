@@ -1,6 +1,14 @@
 .btn {
-    width: 10rem;
-    height: 4rem;
-    font-size: 2rem;   
-    display: none;
+    width: 80%;
+    height: 6rem;
+    top: 50%;
+    left: 50%;
+    font-size: 2rem;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    transition: all .3s;
+
+    &--normal {
+        
+    }
 }

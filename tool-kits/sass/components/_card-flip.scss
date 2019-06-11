@@ -2,6 +2,11 @@
     position: absolute;
     background-color: transparent;
     perspective: 1000px;
+    cursor: pointer;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     &--inner--horizontal {
         position: relative;
@@ -20,6 +25,10 @@
         box-shadow: $dark-box-shadow;
     }
 
+    &:active &--inner--horizontal {
+        box-shadow: $default-box-shadow;
+    }
+
     &--inner--vertical {
         position: relative;
         width: 100%;
@@ -35,6 +44,10 @@
     &:hover &--inner--vertical {
         transform: rotateX(180deg);
         box-shadow: $dark-box-shadow;
+    }
+
+    &:active &--inner--vertical {
+        box-shadow: $default-box-shadow;
     }
 
     &__front, &__back {
