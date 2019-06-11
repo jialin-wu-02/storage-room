@@ -1,10 +1,19 @@
 // disable scrolling
 window.addEventListener('scroll', () => window.scrollTo(0, 0));
 
+let typeColor = {
+    "show-cards": "rgb(169, 231, 255)", 
+    "show-buttons": "rgb(7, 91, 78)", 
+    "show-navs": "rgb(255, 225, 0)"
+};
+
 let index = 0;
 
-let displayType = "show-cards"
-let containerType = "card-container";
+// let displayType = "show-cards"
+let displayType = "show-buttons"
+
+// let containerType = "card-container";
+let containerType = "button-container";
 
 let divs = document.getElementsByClassName(displayType);
 
@@ -33,6 +42,11 @@ const initialize = () => {
     }
 
     divs[0].style.display = "block";
+    divs[0].style.opacity = "1"; 
+
+    // handle background color:
+    document.getElementById("body").style.backgroundColor = " " + typeColor[displayType];
+    console.log(""+typeColor[displayType]);
 }
 
 initialize();

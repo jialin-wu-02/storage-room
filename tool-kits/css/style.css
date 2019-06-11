@@ -36,7 +36,65 @@ body {
   font-size: 2rem;
   transform: translate(-50%, -50%);
   position: absolute;
-  transition: all .3s; }
+  transition: all .3s;
+  cursor: pointer;
+  color: #075b4e; }
+  .btn--normal, .btn--enlarge {
+    border-radius: 3rem;
+    border: none;
+    box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.6rem rgba(0, 0, 0, 0.24); }
+    .btn--normal:hover, .btn--enlarge:hover {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      transform: translate(-50%, -50%) translateY(-0.4rem); }
+    .btn--normal:active, .btn--enlarge:active {
+      box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.6rem rgba(0, 0, 0, 0.24);
+      transform: translate(-50%, -50%) translateY(-0.25rem); }
+  .btn--enlarge::after {
+    content: "";
+    background-color: #fff;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 3rem;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1); }
+  .btn--enlarge:hover::after {
+    transform: scale(1.8);
+    opacity: 0; }
+  .btn--border {
+    border-radius: 3rem;
+    border: .2rem #fff solid;
+    background-color: transparent;
+    color: white;
+    transition: all .5s; }
+    .btn--border:hover {
+      background-color: #fff;
+      color: #075b4e; }
+    .btn--border:active::after {
+      content: "";
+      background-color: white;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 3rem;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+      animation: expandBtn .5s ease-out;
+      animation-fill-mode: forwards; }
+
+@keyframes expandBtn {
+  0% {
+    opacity: 1;
+    transform: scale(1); }
+  100% {
+    opacity: 0;
+    transform: scale(1.8); } }
 
 .card {
   position: absolute;
