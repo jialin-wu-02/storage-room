@@ -9,10 +9,10 @@ A demo page using these components.
 A storage page that contains all the components and displays them and their codes.
 
 ## Progress:
-[x] General UI: Better transition.
-[x] Cards: Prism Card & background-color fix.
-[x] Buttons: Border Button.
-[ ] Navbars
+- [x] General UI: Better transition.
+- [x] Cards: Prism Card & background-color fix.
+- [x] Buttons: Border Button.
+- [ ] Navbars
 
 <!-- ### Components
 
