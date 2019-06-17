@@ -10,7 +10,8 @@ html {
   font-size: 62.5%; }
 
 body {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif; }
 
 .heading-secondary {
   font-size: 2.5rem;
@@ -40,16 +41,16 @@ body {
   color: #075b4e;
   font-weight: 600;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); }
-  .btn--normal, .btn--enlarge {
+  .btn--normal, .btn--enlarge, .btn--email {
     border-radius: 3rem;
     border: none;
     box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.6rem rgba(0, 0, 0, 0.24); }
-    .btn--normal:hover, .btn--enlarge:hover {
+    .btn--normal:hover, .btn--enlarge:hover, .btn--email:hover {
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
       transform: translate(-50%, -50%) translateY(-0.4rem); }
-    .btn--normal:active, .btn--enlarge:active {
-      box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.6rem rgba(0, 0, 0, 0.24);
-      transform: translate(-50%, -50%) translateY(-0.25rem); }
+  .btn--normal:active, .btn--enlarge:active {
+    box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.6rem rgba(0, 0, 0, 0.24);
+    transform: translate(-50%, -50%) translateY(-0.25rem); }
   .btn--enlarge::after {
     content: "";
     background-color: #fff;
@@ -86,6 +87,13 @@ body {
       height: 100%;
       animation: expandBtn .3s ease-out;
       animation-fill-mode: forwards; }
+  .btn--email:active .btn--email__text {
+    opacity: 0;
+    transition: all .2s; }
+  .btn--email:active {
+    box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.12), 0 0.4rem 0.6rem rgba(0, 0, 0, 0.24);
+    animation: transiteBtn .3s ease-out;
+    animation-fill-mode: forwards; }
 
 @keyframes expandBtn {
   0% {
@@ -94,6 +102,14 @@ body {
   100% {
     opacity: 0;
     transform: scale(1.8); } }
+
+@keyframes transiteBtn {
+  0% {
+    transform: translate(-50%, -50%) scaleX(0.5); }
+  50% {
+    transform: translate(-50%, -50%) scaleX(1); }
+  100% {
+    transform: translate(-50%, -50%) scaleX(1.3); } }
 
 .card {
   position: absolute;
@@ -261,9 +277,6 @@ body {
   .dot:first-child {
     margin-right: 0.40rem; }
 
-body {
-  background-color: #a9e7ff; }
-
 .nav {
   position: relative;
   display: block;
@@ -335,6 +348,8 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%); }
+  .container--email__inner {
+    display: none; }
 
 .main {
   width: 80vw;

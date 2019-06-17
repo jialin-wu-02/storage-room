@@ -2,7 +2,7 @@
 window.addEventListener('scroll', () => window.scrollTo(0, 0));
 
 let typeColor = {
-    "show-cards": "rgb(169, 231, 255)", 
+    "show-cards": "rgb(26,188,156)", 
     "show-buttons": "rgb(7, 91, 78)", 
     "show-navs": "rgb(255, 225, 0)"
 };
